@@ -189,7 +189,7 @@
             return array('data'=>$data,'error'=>$error,'error_msg'=>$error_msg);
         }
         // Delete End
-        public function soft_delete($table,$fields=false,$where){
+        public function soft_delete($table,$fields=false,$where=false){
             $data='';
             $error=0;
             $error_msg="";

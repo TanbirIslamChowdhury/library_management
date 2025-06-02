@@ -1,34 +1,44 @@
 <?php include 'include/header.php'; ?>
-    <!-- Sidebar Start -->
-        <?php include 'include/sidebar.php'; ?>
-    <!-- Sidebar End -->
-    <!-- Navbar Start -->
+<!-- Sidebar Start -->
+<?php include 'include/sidebar.php'; ?>
+<!-- Sidebar End -->
+<!-- Navbar Start -->
 <?php include 'include/topbar.php'; ?>
-    <!-- Navbar End -->
+<!-- Navbar End -->
 
-    <!-- Content Start -->
-    <div class="col-sm-12">
+
+<!-- Content Start -->
+<div class="col-sm-12">
     <div class="bg-light rounded h-100 p-4">
-        <h6 class="mb-4">Books Table</h6>
-        <table class="table table-striped">
+        <h6 class="mb-4">Publisher</h6>
+        <a href="author_create.php" class="btn btn-primary float-end">Add New</a>
+        <table class="table text-dark">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Book Title</td>
-                    <td>1</td>   
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Another Book</td>
-                    <td>2</td>
-                </tr>
+                <?php
+                    $author = $mysqli->common_select("author");
+                    if (!$author['error']) {
+                        foreach ($author['data'] as $key => $value) {
+                ?>
+                            <tr>
+                                <th scope="row"><?= $key + 1; ?></th>
+                                <td><?= $value->name; ?></td>
+                                <td><?= $value->description; ?></td>
+                                <td>
+                                    <a href="author_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
+                                    <a onclick="return confirm('Are you sure to delete this data')" href="author_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                <?php
+                        }
+                    }
+                ?>
                 <!-- Add more rows as needed -->
             </tbody>
         </table>
@@ -36,5 +46,4 @@
 </div>
 
 
-<!--footer-->
 <?php include 'include/footer.php'; ?>
