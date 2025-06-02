@@ -1,11 +1,9 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-session_start();
-require_once('class/crud.php');
-$mysqli = new crud();
+include 'include/connection.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_POST) {
     $where = [
         'email' => $_POST['email'],
         'password' => sha1($_POST['password'])

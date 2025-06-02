@@ -18,22 +18,33 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>Users</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cog me-2"></i>Settings</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="http://localhost/project/project_mobile_library/admin/user_list.php" class="dropdown-item">User List</a>
-                            <a href="user_create.php" class="dropdown-item">Add New</a>
+                            <a href="author.php" class="nav-item nav-link ">Author</a>
+                            <a href="publisher.php" class="nav-item nav-link ">Publisher</a>
+                            <a href="category.php" class="nav-item nav-link ">category</a>
+                            <a href="book.php" class="nav-item nav-link ">Books</a>
+                            <a href="shipping_charge.php" class="nav-item nav-link">Shipping Charge</a>
                         </div>
                     </div>
-                    <a href="book_list.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Books</a>
-                    <a href="author.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Author</a>
-                    <a href="library_book_list.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book List</a>
-                    <a href="library_publisher.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Publisher</a>
-                    <a href="library_categories.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Categories</a>
-                    <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Orders</a>
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Order Items</a>
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Publications</a>
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Sliders</a>
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Store Books</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>User Accounts</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="admin_list.php" class="nav-item nav-link "></i>Admin User</a>
+                            <a href="user_list.php" class="nav-item nav-link ">User</a>
+                            <a href="delivery_man.php" class="nav-item nav-link ">Delivery Man</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-map me-2"></i>location</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="district.php" class="nav-item nav-link">District</a>
+                            <a href="division.php" class="nav-item nav-link">Division</a>
+                        </div>
+                    </div>
+                    
+                    <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-bag me-2"></i>Orders</a>
+                    <a href="slider.php" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Sliders</a>
 
                     
                     

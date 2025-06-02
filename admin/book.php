@@ -12,7 +12,8 @@
 <div class="col-sm-12">
     <div class="bg-light rounded h-100 p-4">
         <h6 class="mb-4">Books Table</h6>
-        <table class="table table-striped">
+        <a href="book_create.php" class="btn btn-primary float-end">Add Book</a>
+        <table class="table text-dark">
             <thead>
                 <tr>
                     <th>#</th>
