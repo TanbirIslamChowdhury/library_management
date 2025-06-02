@@ -7,7 +7,7 @@ CREATE TABLE `users` (
   `nid` varchar(25),
   `dob` date,
   `address` varchar(100),
-  `password` varchar(30)
+  `password` varchar(60)
 );
 
 CREATE TABLE `admins` (
@@ -19,7 +19,7 @@ CREATE TABLE `admins` (
   `nid` varchar(50),
   `dob` date,
   `address` varchar(100),
-  `password` varchar(30)
+  `password` varchar(60)
 );
 
 CREATE TABLE `sliders` (
