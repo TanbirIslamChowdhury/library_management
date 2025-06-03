@@ -46,31 +46,31 @@
                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="gender" class="form-label">Gender</label>
-                                    <input type="text" class="form-control" id="gender" name="gender">
+                                    <input type="text" value="<?= $data->gender ?>"class="form-control" id="gender" name="gender">
                                 </div>
                             </div>
                              <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="nid" class="form-label">Nid</label>
-                                    <input type="text" class="form-control" id="nid" name="nid">
+                                    <input type="text" value="<?= $data->nid ?>"class="form-control" id="nid" name="nid">
                                 </div>
                             </div>
                              <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="dob" class="form-label">Dob</label>
-                                    <input type="text" class="form-control" id="dob" name="dob">
+                                    <input type="date" value="<?= $data->dob ?>"class="form-control" id="dob" name="dob">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address">
+                                    <input type="text" value="<?= $data->address ?>"class="form-control" id="address" name="address">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="password" name="password">
+                                    <input type="text" value="<?= $data->password ?>"class="form-control" id="password" name="password">
                                 </div>
                             </div>
                          </div>

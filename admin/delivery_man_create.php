@@ -50,7 +50,7 @@
                              <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="dob" class="form-label">Dob</label>
-                                    <input type="text" class="form-control" id="dob" name="dob">
+                                    <input type="date" class="form-control" id="dob" name="dob">
                                 </div>
                             </div>
                             <div class="col-sm-6">
