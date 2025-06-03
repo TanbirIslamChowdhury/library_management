@@ -10,29 +10,31 @@
 <!-- Content Start -->
 <div class="col-sm-12">
     <div class="bg-light rounded h-100 p-4">
-        <h6 class="mb-4">Author</h6>
-        <a href="author_create.php" class="btn btn-primary float-end">Add New</a>
+        <h6 class="mb-4">Categories</h6>
+        <a href="categories_create.php" class="btn btn-primary float-end">Add New</a>
         <table class="table text-dark">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th>Description </th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $author = $mysqli->common_select("author");
-                    if (!$author['error']) {
-                        foreach ($author['data'] as $key => $value) {
+                    $categories = $mysqli->common_select("categories");
+                    if (!$categories['error']) {
+                        foreach ($categories['data'] as $key => $value) {
                 ?>
                             <tr>
                                 <th scope="row"><?= $key + 1; ?></th>
                                 <td><?= $value->name; ?></td>
                                 <td><?= $value->description; ?></td>
+                                
                                 <td>
-                                    <a href="author_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
-                                    <a onclick="return confirm('Are you sure to delete this data')" href="author_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>
+                                    <a href="categories_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
+                                    <a onclick="return confirm('Are you sure to delete this data')" href="categories_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                 <?php

@@ -16,13 +16,13 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="dashboard.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cog me-2"></i>Settings</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="author.php" class="nav-item nav-link ">Author</a>
                             <a href="publisher.php" class="nav-item nav-link ">Publisher</a>
-                            <a href="category.php" class="nav-item nav-link ">category</a>
+                            <a href="categories.php" class="nav-item nav-link ">category</a>
                             <a href="book.php" class="nav-item nav-link ">Books</a>
                             <a href="shipping_charge.php" class="nav-item nav-link">Shipping Charge</a>
                         </div>
