@@ -1,4 +1,10 @@
+<?php
 
+include 'connection_user.php';
+if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
+    header('location:login_user.php');
+}
+?>
 
 	<div id="header-wrap">
 
