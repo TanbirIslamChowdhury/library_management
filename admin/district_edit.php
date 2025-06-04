@@ -30,9 +30,9 @@
                                     <label for="division_id" class="form-label">Division</label>
                                     <select class="form-control" id="division_id" name="division_id">  
                                         <?php
-                                        $data=$mysqli->common_select('division');
-                                        if(!$data['error']){
-                                            foreach($data['data'] as $d){
+                                        $division=$mysqli->common_select('division');
+                                        if(!$division['error']){
+                                            foreach($division['data'] as $d){
                                         ?>
                                         <option value="<?= $d->id ?>"><?= $d->name ?></option>
                                         <?php } } ?>
