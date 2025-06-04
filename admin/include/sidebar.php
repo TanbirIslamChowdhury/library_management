@@ -44,7 +44,7 @@
                     </div>
                     
                     <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-bag me-2"></i>Orders</a>
-                    <a href="slider.php" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Sliders</a>
+                    <a href="sliders.php" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Sliders</a>
 
                     
                     
