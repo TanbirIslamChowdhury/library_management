@@ -26,9 +26,17 @@
                     <form method="post" action="">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="user_id" class="form-label">User_id</label>
-                                    <input type="text" class="form-control" id="user_id" name="user_id">
+                                <div class="form-group">
+                                    <label for="user_id">User</label>
+                                    <select class="form-control" id="user_id" name="user_id">  
+                                        <?php
+                                        $data=$mysqli->common_select('user');
+                                        if(!$data['error']){
+                                            foreach($data['data'] as $d){
+                                        ?>
+                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">

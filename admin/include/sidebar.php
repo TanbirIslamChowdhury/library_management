@@ -24,6 +24,7 @@
                             <a href="publisher.php" class="nav-item nav-link ">Publisher</a>
                             <a href="categories.php" class="nav-item nav-link ">category</a>
                             <a href="book.php" class="nav-item nav-link ">Books</a>
+                            <a href="Stock.php" class="nav-item nav-link ">Stocks</a>
                             <a href="shipping_charge.php" class="nav-item nav-link">Shipping Charge</a>
                         </div>
                     </div>

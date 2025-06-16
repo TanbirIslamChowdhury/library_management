@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>User_id</th>
+                    <th>User</th>
                     <th>Total Amount  </th>
                     <th>Order Ddate</th>
                     <th>Payment Status</th>

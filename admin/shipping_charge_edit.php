@@ -32,9 +32,17 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="district_id" class="form-label">district_id</label>
-                                    <input type="text" value="<?= $data->district_id ?>" class="form-control" id="district_id" name="district_id">
+                                <div class="form-group">
+                                    <label for="district_id">District</label>
+                                    <select class="form-control" id="district_id" name="district_id">  
+                                        <?php
+                                        $data=$mysqli->common_select('district');
+                                        if(!$data['error']){
+                                            foreach($data['data'] as $d){
+                                        ?>
+                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
