@@ -8,13 +8,62 @@ if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
 
 
 
-<header id="header" class="fixed-top">
+
+<div id="header-wrap">
+
+		<div class="top-content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="social-links">
+							<ul>
+								<li>
+									<a href="#"><i class="icon icon-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-youtube-play"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-behance-square"></i></a>
+								</li>
+							</ul>
+						</div><!--social-links-->
+					</div>
+					<div class="col-md-6">
+						<div class="right-element">
+							<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
+							<a href="LibraryCartAnother.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
+									$)</span></a>
+
+							<div class="action-menu">
+
+								<div class="search-bar">
+									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+										<i class="icon icon-search"></i>
+									</a>
+									<form role="search" method="get" class="search-box">
+										<input class="search-field text search-input" placeholder="Search" type="search">
+									</form>
+								</div>
+							</div>
+
+						</div><!--top-right-->
+					</div>
+
+				</div>
+			</div>
+		</div><!--top-content-->
+
+		<header id="header" class="">
 			<div class="container-fluid">
 				<div class="row">
 
 					<div class="col-md-2">
 						<div class="main-logo">
-							<a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
+							<a href="LibraryIndex.php"><img src="images/main-logo.png" alt="logo"></a>
 						</div>
 
 					</div>
@@ -24,12 +73,12 @@ if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
 						<nav id="navbar">
 							<div class="main-menu stellarnav desktop"><a href="#" class="menu-toggle full"><span class="bars"><span></span><span></span><span></span></span> Menu</a>
 								<ul class="menu-list">
-									<li class="menu-item active"><a href="#home">Home</a></li>
+									<li class="menu-item active"><a href="LibraryIndex.php">Home</a></li>
 									<li class="menu-item has-sub">
 										<a href="#pages" class="nav-link">Pages</a>
 
 										<ul style="display: none;">
-											<li class="active"><a href="index.html">Home</a></li>
+											<li class="active"><a href="LibraryIndex.php">Home</a></li>
 											<li><a href="index.html">About</a></li>
 											<li><a href="index.html">Styles</a></li>
 											<li><a href="index.html">Blog</a></li>
@@ -62,3 +111,5 @@ if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
 				</div>
 			</div>
 		</header>
+
+	</div>
