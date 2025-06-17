@@ -41,25 +41,25 @@
                     </form>
                     <?php
 
-                    if ($_POST) {
-                        if ($_FILES) {
-                            $img = $_FILES["image"];
-                            $location = "images/" . time() . rand(1111, 9999) . $img['name'];
-                            $rs = move_uploaded_file($img['tmp_name'], $location);
-                            if ($rs) {
-                                $_POST['image'] = $location;
+                        if ($_POST) {
+                            if ($_FILES) {
+                                $img = $_FILES["image"];
+                                $location = "images/" . time() . rand(1111, 9999) . $img['name'];
+                                $rs = move_uploaded_file($img['tmp_name'], $location);
+                                if ($rs) {
+                                    $_POST['image'] = $location;
+                                }
                             }
+                            $_POST['created_at'] = date('Y-m-d H:i:s');
+                            $_POST['created_by'] = $_SESSION['user']->id;
+                            $res=$mysqli->common_insert('sliders',$_POST);
+                            if(!$res['error']){
+                            echo "<script>location.href='".$baseurl."admin/sliders.php'</script>";
+                            }else{
+                            echo $res['error_msg'];
+                            }
+                            
                         }
-                        $_POST['created_at'] = date('Y-m-d H:i:s');
-                        $_POST['created_by'] = $_SESSION['user']->id;
-                        $res=$mysqli->common_insert('sliders',$_POST);
-                        if(!$res['error']){
-                          echo "<script>location.href='".$baseurl."admin/sliders.php'</script>";
-                        }else{
-                          echo $res['error_msg'];
-                        }
-                        
-                    }
                     ?>
                 </div>
             </div>
