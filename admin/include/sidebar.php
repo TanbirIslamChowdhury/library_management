@@ -24,6 +24,8 @@
                             <a href="publisher.php" class="nav-item nav-link ">Publisher</a>
                             <a href="categories.php" class="nav-item nav-link ">category</a>
                             <a href="books.php" class="nav-item nav-link ">Books</a>
+                            <a href="book_purchase.php" class="nav-item nav-link ">Book Purchase</a>
+                            <a href="book_purchase_items.php" class="nav-item nav-link ">Book Purchase Items</a>
                             <a href="Stock.php" class="nav-item nav-link ">Stocks</a>
                             <a href="shipping_charge.php" class="nav-item nav-link">Shipping Charge</a>
                         </div>
@@ -43,8 +45,17 @@
                             <a href="division.php" class="nav-item nav-link">Division</a>
                         </div>
                     </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-shopping-bag me-2"></i>Order menue</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="orders.php" class="nav-item nav-link"></i>Orders</a>
+                            <a href="order_items.php" class="nav-item nav-link">Order Items</a>
+                            <a href="order_track.php" class="nav-item nav-link">Order Track</a>
+                        </div>
+                    </div>
                     
-                    <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-bag me-2"></i>Orders</a>
+                    
                     <a href="sliders.php" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Sliders</a>
 
                     

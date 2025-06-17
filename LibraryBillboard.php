@@ -1,6 +1,4 @@
-
-
-    <section id="billboard">
+<section id="billboard">
 
 <div class="container">
     <div class="row">
