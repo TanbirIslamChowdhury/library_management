@@ -15,18 +15,33 @@
         <div class="row g-4">
             <div class="col-sm-12">
                 <div class="bg-light rounded h-100 p-4">
-                    <form method="post" action="">
+                    <form method="post" action="" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="category_id" class="form-label">Category Id</label>
-                                    <input type="text" class="form-control" id="category_id" name="category_id">
-                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="division_id">Categories</label>
+                                    <select class="form-control" id="categories_id" name="categories_id">  
+                                        <?php
+                                        $data=$mysqli->common_select('categories');
+                                        if(!$data['error']){
+                                            foreach($data['data'] as $d){
+                                        ?>
+                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                             </div>
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="publisher_id" class="form-label">Publisher Id </label>
-                                    <input type="text" class="form-control" id="publisher_id" name="publisher_id">
+                                <div class="form-group mb-3">
+                                    <label for="division_id">Publisher</label>
+                                    <select class="form-control" id="publisher_id" name="publisher_id">  
+                                        <?php
+                                        $data=$mysqli->common_select('publisher');
+                                        if(!$data['error']){
+                                            foreach($data['data'] as $d){
+                                        ?>
+                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -36,9 +51,17 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="author_id" class="form-label">Author Id</label>
-                                    <input type="text" class="form-control" id="author_id" name="author_id">
+                                <div class="form-group mb-3">
+                                    <label for="division_id">Author</label>
+                                    <select class="form-control" id="author_id" name="author_id">  
+                                        <?php
+                                        $data=$mysqli->common_select('author');
+                                        if(!$data['error']){
+                                            foreach($data['data'] as $d){
+                                        ?>
+                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -74,7 +97,7 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="text" class="form-control" id="image" name="image">
+                                    <input type="file" class="form-control" id="image" name="image">
                                 </div>
                             </div>
                         </div>
@@ -82,6 +105,14 @@
                     </form>
                     <?php
                     if ($_POST) {
+                        if ($_FILES) {
+                            $img = $_FILES["image"];
+                            $location = "images/" . time() . rand(1111, 9999) . $img['name'];
+                            $rs = move_uploaded_file($img['tmp_name'], $location);
+                            if ($rs) {
+                                $_POST['image'] = $location;
+                            }
+                        }
                         $_POST['created_at'] = date('Y-m-d H:i:s');
                         $_POST['created_by'] = $_SESSION['user']->id;
                         $res=$mysqli->common_insert('books',$_POST);

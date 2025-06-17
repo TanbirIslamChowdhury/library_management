@@ -82,14 +82,22 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="text" value="<?= $data->image ?>" class="form-control" id="image" name="image">
+                                    <input type="file" class="form-control" id="image" name="image">
                                 </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                     <?php
-                    if ($_POST) {
+                   if ($_POST) {
+                        if ($_FILES) {
+                            $img = $_FILES["image"];
+                            $location = "images/" . time() . rand(1111, 9999) . $img['name'];
+                            $rs = move_uploaded_file($img['tmp_name'], $location);
+                            if ($rs) {
+                                $_POST['image'] = $location;
+                            }
+                        }
                         $_POST['updated_at'] = date('Y-m-d H:i:s');
                         $_POST['updated_by'] = $_SESSION['user']->id;
                         $res=$mysqli->common_update('books',$_POST,$where);
