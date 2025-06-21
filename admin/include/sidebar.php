@@ -31,10 +31,10 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>User Accounts</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>Accounts</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="admin_list.php" class="nav-item nav-link "></i>Admin User</a>
-                            <a href="user_list.php" class="nav-item nav-link ">User</a>
+                            <a href="admins.php" class="nav-item nav-link "></i>Admins</a>
+                            <a href="users.php" class="nav-item nav-link ">User</a>
                             <a href="delivery_man.php" class="nav-item nav-link ">Delivery Man</a>
                         </div>
                     </div>
