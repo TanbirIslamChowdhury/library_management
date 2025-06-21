@@ -22,13 +22,13 @@
             </thead>
             <tbody>
                 <?php
-                    $district = $mysqli->common_select("district");
+                    $district = $mysqli->common_query("SELECT district.* , division.name as divi FROM district LEFT JOIN division ON district.division_id = division.id where district.status = 1");
                     if (!$district['error']) {
                         foreach ($district['data'] as $key => $value) {
                 ?>
                             <tr>
                                 <th scope="row"><?= $key + 1; ?></th>
-                                <td><?= $value->division_id; ?></td>
+                                <td><?= $value->divi; ?></td>
                                 <td><?= $value->name; ?></td>
                                 <td>
                                     <a href="district_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>

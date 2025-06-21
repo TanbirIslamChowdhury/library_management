@@ -16,31 +16,20 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Book Id </th>
-                    <th>Order Id </th>
-                    <th>Purchase Id </th>
-                    <th>Price</th>
+                    <th>Book</th>
                     <th>Stock Quantity </th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $stock = $mysqli->common_select("stock");
+                    $stock = $mysqli->common_query("SELECT sum(stock.stock_quantity) as balance, books.name FROM `stock` JOIN books on books.id=stock.book_id GROUP by stock.book_id");
                     if (!$stock['error']) {
                         foreach ($stock['data'] as $key => $value) {
                 ?>
                             <tr>
                                 <th scope="row"><?= $key + 1; ?></th>
-                                <td><?= $value->book_id; ?></td>
-                                <td><?= $value->order_id; ?></td>
-                                <td><?= $value->purchase_id; ?></td>
-                                <td><?= $value->price; ?></td>
-                                 <td><?= $value->stock_quantity; ?></td>
-                                <td>
-                                    <a href="stock_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
-                                    <a onclick="return confirm('Are you sure to delete this data')" href="stock_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>
-                                </td>
+                                <td><?= $value->name; ?></td>
+                                <td><?= $value->balance; ?></td>
                             </tr>
                 <?php
                         }

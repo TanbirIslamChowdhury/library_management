@@ -80,14 +80,18 @@
     <div class="container">
         <div class="products" id="products">
             
-        <table class="table table-bordered">
+       
+        </div>
+        
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -102,24 +106,16 @@
                         <td><?php echo $product['price']; ?></td>
                         <td><?php echo $product['qty']; ?></td>
                         <td><?php echo $product['price'] * $product['qty']; ?></td>
-                        <td>
-                            <button class="btn btn-danger" onclick="removeFromCart(<?php echo $id; ?>)">Remove</button>
-                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td><?= $_SESSION['cart']['total']; ?></td>
+                </tr>
+            </tfoot>
         </table>
-        </div>
-        
-        <div class="cart">
-            <h2>Your Cart</h2>
-            <div id="cart-items">
-                <!-- Cart items will be added here by JavaScript -->
-            </div>
-            <div class="cart-total" id="cart-total">
-                Total: BDT <?= $_SESSION['cart']['total']; ?>
-            </div>
-            <a  href="checkout.php" id="checkout-btn">Proceed to Checkout</a>
         </div>
     </div>
 

@@ -30,22 +30,22 @@
             </thead>
             <tbody>
                 <?php
-                    $books = $mysqli->common_select("books");
+                    $books = $mysqli->common_query("SELECT books.*, categories.name as cat, author.name as auth, publisher.name as pub FROM `books` JOIN categories on categories.id=books.category_id JOIN author on author.id=books.author_id JOIN publisher on publisher.id=books.publisher_id WHERE books.status=1");
                     if (!$books['error']) {
                         foreach ($books['data'] as $key => $value) {
                 ?>
                             <tr>
                                 <th scope="row"><?= $key + 1; ?></th>
-                                <td><?= $value->category_id; ?></td>
-                                <td><?= $value->publisher_id; ?></td>
+                                <td><?= $value->cat; ?></td>
+                                <td><?= $value->pub; ?></td>
                                 <td><?= $value->name; ?></td>
-                                <td><?= $value->author_id; ?></td>
-                                <td><?= $value->is_featured; ?></td>
-                                <td><?= $value->is_populer; ?></td>
+                                <td><?= $value->auth; ?></td>
+                                <td><?= $value->is_featured?"Yes":"No"; ?></td>
+                                <td><?= $value->is_populer?"Yes":"No"; ?></td>
                                 <td><?= $value->price; ?></td>
                                 <td><?= $value->offer_price; ?></td>
-                                 <td><?= $value->description; ?></td>
-                                <td><?= $value->image; ?></td>
+                                <td><?= $value->description; ?></td>
+                                <td><img src="<?= $value->image; ?>" width="100px"></td>
                                 <td>
                                     <a href="books_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
                                     <a onclick="return confirm('Are you sure to delete this data')" href="books_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>

@@ -2,7 +2,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-
 				<div class="section-header align-center">
 					<div class="title">
 						<span>Some quality items</span>
@@ -12,66 +11,31 @@
 
 				<div class="product-list aos-init aos-animate" data-aos="fade-up">
 					<div class="row">
-
-						<div class="col-md-3">
-							<div class="product-item">
-								<figure class="product-style">
-									<img src="images/product-item1.jpg" alt="Books" class="product-item">
-									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-										Cart</button>
-								</figure>
-								<figcaption>
-									<h3>Simple way of piece life</h3>
-									<span>Armor Ramsey</span>
-									<div class="item-price">$ 40.00</div>
-								</figcaption>
+						<?php
+						
+						$books = $mysqli->common_query("SELECT books.*, categories.name as cat, author.name as auth, publisher.name as pub FROM `books` JOIN categories on categories.id=books.category_id JOIN author on author.id=books.author_id JOIN publisher on publisher.id=books.publisher_id WHERE books.status=1 and books.is_featured =1");
+						if (!$books['error']) {
+							foreach ($books['data'] as $d) {
+						?>
+							<div class="col-md-3">
+								<div class="product-item">
+									<figure class="product-style">
+										<img src="<?= $baseurl ?>admin/<?= $d->image ?>" alt="Books" class="product-item">
+										<button type="button" onclick="addToCartAJAX(<?= $d->id ?>,'<?= $d->name ?>','<?= $d->price ?>')" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
+									</figure>
+									<figcaption>
+										<h3><?= $d->name ?></h3>
+										<span><?= $d->auth ?></span><br>
+										<?php if($d->offer_price >0){ ?>
+										<span class="item-price">BDT<?= $d->offer_price ?> </span><del><?= $d->price ?></del>
+										<?php }else{ ?>
+											<div class="item-price">BDT<?= $d->price ?></div>
+										<?php } ?>
+									</figcaption>
+								</div>
 							</div>
-						</div>
-
-						<div class="col-md-3">
-							<div class="product-item">
-								<figure class="product-style">
-									<img src="images/product-item2.jpg" alt="Books" class="product-item">
-									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-										Cart</button>
-								</figure>
-								<figcaption>
-									<h3>Great travel at desert</h3>
-									<span>Sanchit Howdy</span>
-									<div class="item-price">$ 38.00</div>
-								</figcaption>
-							</div>
-						</div>
-
-						<div class="col-md-3">
-							<div class="product-item">
-								<figure class="product-style">
-									<img src="images/product-item3.jpg" alt="Books" class="product-item">
-									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-										Cart</button>
-								</figure>
-								<figcaption>
-									<h3>The lady beauty Scarlett</h3>
-									<span>Arthur Doyle</span>
-									<div class="item-price">$ 45.00</div>
-								</figcaption>
-							</div>
-						</div>
-
-						<div class="col-md-3">
-							<div class="product-item">
-								<figure class="product-style">
-									<img src="images/product-item4.jpg" alt="Books" class="product-item">
-									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-										Cart</button>
-								</figure>
-								<figcaption>
-									<h3>Once upon a time</h3>
-									<span>Klien Marry</span>
-									<div class="item-price">$ 35.00</div>
-								</figcaption>
-							</div>
-						</div>
+						<?php } } ?>
+						
 
 					</div><!--ft-books-slider-->
 				</div><!--grid-->

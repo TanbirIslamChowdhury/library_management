@@ -19,8 +19,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
-                                    <label for="division_id">Categories</label>
-                                    <select class="form-control" id="categories_id" name="categories_id">  
+                                    <label for="category_id">Categories</label>
+                                    <select class="form-control" id="category_id" name="category_id">  
                                         <?php
                                         $data=$mysqli->common_select('categories');
                                         if(!$data['error']){
@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
-                                    <label for="division_id">Publisher</label>
+                                    <label for="publisher_id">Publisher</label>
                                     <select class="form-control" id="publisher_id" name="publisher_id">  
                                         <?php
                                         $data=$mysqli->common_select('publisher');
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
-                                    <label for="division_id">Author</label>
+                                    <label for="author_id">Author</label>
                                     <select class="form-control" id="author_id" name="author_id">  
                                         <?php
                                         $data=$mysqli->common_select('author');
@@ -67,13 +67,13 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="is_featured" class="form-label">Is Featured</label>
-                                    <input type="text" class="form-control" id="is_featured" name="is_featured">
+                                    <input type="checkbox" id="is_featured" name="is_featured" value="1">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="is_populer" class="form-label">Is Populer</label>
-                                    <input type="text" class="form-control" id="is_populer" name="is_populer">
+                                    <input type="checkbox" id="is_populer" name="is_populer" value="1">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -115,6 +115,7 @@
                         }
                         $_POST['created_at'] = date('Y-m-d H:i:s');
                         $_POST['created_by'] = $_SESSION['user']->id;
+                        $_POST['status']=1;
                         $res=$mysqli->common_insert('books',$_POST);
                         if(!$res['error']){
                           echo "<script>location.href='".$baseurl."admin/books.php'</script>";

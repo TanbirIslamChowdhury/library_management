@@ -19,8 +19,7 @@
                     <th>publisher_id</th>
                     <th>purchase_date </th>
                     <th>Price</th>
-                    <th>quantity</th>
-                  
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +33,6 @@
                                 <td><?= $value->publisher_id; ?></td>
                                 <td><?= $value->purchase_date; ?></td>
                                 <td><?= $value->price; ?></td>
-                                <td><?= $value->quantity; ?></td>
                                 <td>
                                     <a href="book_purchase_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
                                     <a onclick="return confirm('Are you sure to delete this data')" href="book_purchase_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>
