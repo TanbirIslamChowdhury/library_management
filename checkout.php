@@ -78,8 +78,66 @@
     ?>
         
     <div class="container">
+        <form action="" method="post">
+    <label for="user">User</label>
+    <input type="text" name="" id="user">
+
+    <label for="contact">Contact no</label>
+    <input type="text" name="" id="contact">
+
+    <label for="mail">Email</label>
+    <input type="text" name="" id="mail">
+
+    <label for="division">Shiping Division</label>
+    <input type="text" name="" id="division">
+
+    <label for="district">Shiping District</label>
+    <input type="text" name="" id="district">
+
+    <label for="address">Shiping Address</label>
+    <input type="text" name="" id="address">
+
+    <label for="billingAdd">Billing Address</label>
+    <input type="text" name="" id="billingAdd">
+
+    <label for="billingCon">Billing Contact</label>
+    <input type="text" name="" id="billingCon">
+    
+</form>
+
         <div class="products" id="products">
             
+
+<!-- <form action="" method="post">
+    <label for="user">User</label>
+    <input type="text" name="" id="user">
+
+    <label for="contact">Contact no</label>
+    <input type="text" name="" id="contact">
+
+    <label for="mail">Email</label>
+    <input type="text" name="" id="mail">
+
+    <label for="division">Shiping Division</label>
+    <input type="text" name="" id="division">
+
+    <label for="district">Shiping District</label>
+    <input type="text" name="" id="district">
+
+    <label for="address">Shiping Address</label>
+    <input type="text" name="" id="address">
+
+    <label for="billingAdd">Billing Address</label>
+    <input type="text" name="" id="billingAdd">
+
+    <label for="">Billing Contact
+    <input type="text" name="" id="">
+    </label>
+</form> -->
+
+
+
+
        
         </div>
         
