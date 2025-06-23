@@ -49,15 +49,7 @@
 				<div class="col-md-6">
 					<div class="right-element">
 						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-						<a href="LibraryCartAnother.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>
-							Cart:(BDT 
-							<?php if(isset($_SESSION['cart'])){
-								echo $_SESSION['cart']['total'];
-							}else{
-								echo 0;
-							}?>
-							)</span>
-						</a>
+						
 
 						<div class="action-menu">
 
@@ -115,7 +107,19 @@
 								<li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
 								<li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>
 								<li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
-								<li class="menu-item"><a href="#download-app" class="nav-link">Download App</a></li>
+								<li class="menu-item">
+									<a href="cart.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>
+										Cart:(BDT 
+										<span class="car-total">
+										<?php if(isset($_SESSION['cart'])){
+											echo $_SESSION['cart']['total'];
+										}else{
+											echo 0;
+										}?>
+										</span>
+										)</span>
+									</a>
+								</li>
 							</ul>
 
 							<div class="hamburger">

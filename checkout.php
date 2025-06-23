@@ -1,76 +1,5 @@
 
 <?php include 'include/header.php';?>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            display: flex;
-            gap: 20px;
-        }
-        .products {
-            flex: 2;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .product {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
-        .cart {
-            flex: 1;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            position: sticky;
-            top: 20px;
-            height: fit-content;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        .cart-total {
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .quantity-controls button {
-            padding: 2px 8px;
-        }
-    </style>
-
-
     
     <h1 style="display:flex;justify-content:center">Cart Page</h1>
     <?php
@@ -78,102 +7,117 @@
     ?>
         
     <div class="container">
-        <form action="" method="post">
-    <label for="user">User</label>
-    <input type="text" name="" id="user">
-
-    <label for="contact">Contact no</label>
-    <input type="text" name="" id="contact">
-
-    <label for="mail">Email</label>
-    <input type="text" name="" id="mail">
-
-    <label for="division">Shiping Division</label>
-    <input type="text" name="" id="division">
-
-    <label for="district">Shiping District</label>
-    <input type="text" name="" id="district">
-
-    <label for="address">Shiping Address</label>
-    <input type="text" name="" id="address">
-
-    <label for="billingAdd">Billing Address</label>
-    <input type="text" name="" id="billingAdd">
-
-    <label for="billingCon">Billing Contact</label>
-    <input type="text" name="" id="billingCon">
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="contact_no">Contact no</label>
+                            <input type="text" class="form-control" name="contact_no" id="contact_no">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="shipping_division">Shiping Division</label>
+                            <select class="form-control" onchange="get_district(this.value)" id="shipping_division" name="shipping_division">
+                                <option value="">Select Division</option>  
+                                <?php
+                                $data=$mysqli->common_select('division');
+                                if(!$data['error']){
+                                    foreach($data['data'] as $d){
+                                ?>
+                                <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="shipping_district">Shiping District</label>
+                            <select class="form-control" onchange="shipping_charge(this.value)" id="shipping_district" name="shipping_district">  
+                               <option value="">Select District</option>  
+                            </select>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <label for="shipping_address">Shiping Address</label>
+                            <input type="text" name="shipping_address" id="shipping_address">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="billing_address">Billing Address</label>
+                            <input type="text" name="billing_address" id="billing_address">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="billing_contact">Billing Contact</label>
+                            <input type="text" name="billing_contact" id="billing_contact">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary" type="submit">Checkout</button>
+                        </div>
+                    </div>
     
-</form>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="cart">
+                    <h2>Your Cart</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
 
-        <div class="products" id="products">
-            
-
-<!-- <form action="" method="post">
-    <label for="user">User</label>
-    <input type="text" name="" id="user">
-
-    <label for="contact">Contact no</label>
-    <input type="text" name="" id="contact">
-
-    <label for="mail">Email</label>
-    <input type="text" name="" id="mail">
-
-    <label for="division">Shiping Division</label>
-    <input type="text" name="" id="division">
-
-    <label for="district">Shiping District</label>
-    <input type="text" name="" id="district">
-
-    <label for="address">Shiping Address</label>
-    <input type="text" name="" id="address">
-
-    <label for="billingAdd">Billing Address</label>
-    <input type="text" name="" id="billingAdd">
-
-    <label for="">Billing Contact
-    <input type="text" name="" id="">
-    </label>
-</form> -->
-
-
-
-
-       
-        </div>
-        
-        <div class="cart">
-            <h2>Your Cart</h2>
-            <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                $total = 0;
-                foreach ($_SESSION['cart']['item'] as $id=>$product) {
-                    $total += $product['price'] * $product['qty'];
-                ?>
-                    <tr>
-                        <td><?php echo $product['name']; ?></td>
-                        <td><?php echo $product['price']; ?></td>
-                        <td><?php echo $product['qty']; ?></td>
-                        <td><?php echo $product['price'] * $product['qty']; ?></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">Total</td>
-                    <td><?= $_SESSION['cart']['total']; ?></td>
-                </tr>
-            </tfoot>
-        </table>
+                        <tbody>
+                            <?php
+                            $total = 0;
+                            foreach ($_SESSION['cart']['item'] as $id=>$product) {
+                                $total += $product['price'] * $product['qty'];
+                            ?>
+                                <tr>
+                                    <td><?php echo $product['name']; ?></td>
+                                    <td><?php echo $product['price']; ?></td>
+                                    <td><?php echo $product['qty']; ?></td>
+                                    <td><?php echo $product['price'] * $product['qty']; ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total</td>
+                                <td><?= $_SESSION['cart']['total']; ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Discount</td>
+                                <td>
+                                    <?php if($_SESSION['cart']['discount_type']==1){ ?>
+                                        (<?= $_SESSION['cart']['discount_amount']; ?>)
+                                    <?php }else{ ?>
+                                        <?= $_SESSION['cart']['discount_amount_final']; ?> (<?= $_SESSION['cart']['discount_amount']; ?>%)
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Shipping Charge</td>
+                                <td><span id="shipping_charge"></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Grand Total</td>
+                                <td><span id="grand_total"></span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -188,16 +132,37 @@
 
 <script>
 
-        // Remove an item from the cart
-        function removeFromCart(book_id) {
-            $.get('cart_delete.php',
-                { id : book_id},
-                function(data){
-                    if(data){
-                        window.location.reload();
-                    }
+    // Remove an item from the cart
+    function removeFromCart(book_id) {
+        $.get('cart_delete.php',
+            { id : book_id},
+            function(data){
+                if(data){
+                    window.location.reload();
                 }
-            )
-        }
+            }
+        )
+    }
+
+    function get_district(division_id){
+        $.get('get_district.php',
+            { division_id : division_id},
+            function(data){
+                if(data){
+                    $('#shipping_district').html(data);
+                }
+            }
+        )
+    }
+    function shipping_charge(district_id){
+        $.get('shipping_charge.php',
+            { district_id : district_id},
+            function(data){
+                if(data){
+                    $('#shipping_charge').text(data);
+                }
+            }
+        )
+    }
 
     </script>

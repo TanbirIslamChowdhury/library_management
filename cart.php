@@ -103,7 +103,7 @@
                         <td><?php echo $product['qty']; ?></td>
                         <td><?php echo $product['price'] * $product['qty']; ?></td>
                         <td>
-                            <button class="btn btn-danger" onclick="removeFromCart(<?php echo $id; ?>)">Remove</button>
+                            <button class="btn btn-danger btn-sm" onclick="removeFromCart(<?php echo $id; ?>)"><i class="icon icon-cancel"></i></button>
                         </td>
                     </tr>
                 <?php } ?>
@@ -114,7 +114,8 @@
         <div class="cart">
             <h2>Your Cart</h2>
             <div id="cart-items">
-                <!-- Cart items will be added here by JavaScript -->
+                <label for="">Coupon</label>
+                <input type="text" id="coupon-input" placeholder="Enter coupon code">
             </div>
             <div class="cart-total" id="cart-total">
                 Total: BDT <?= $_SESSION['cart']['total']; ?>
