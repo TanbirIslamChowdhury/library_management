@@ -52,6 +52,7 @@
                             <a href="orders.php" class="nav-item nav-link"></i>Orders</a>
                             <a href="order_items.php" class="nav-item nav-link">Order Items</a>
                             <a href="order_track.php" class="nav-item nav-link">Order Track</a>
+                            <a href="coupon.php" class="nav-item nav-link">Coupon</a>
                         </div>
                     </div>
                     
