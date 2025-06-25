@@ -19,7 +19,6 @@
                     <th>Name</th>
                     <th>Coupon Code </th>
                     <th>Validity Date</th>
-                    <th>Amount Type</th>
                     <th>Amount</th>
                     <th>Action</th>
                 </tr>
@@ -35,8 +34,7 @@
                                 <td><?= $value->name; ?></td>
                                 <td><?= $value->coupon_code; ?></td>
                                 <td><?= $value->validity_date; ?></td>
-                                <td><?= $value->amount_type; ?></td>
-                                 <td><?= $value->amount; ?></td>
+                                 <td><?= $value->amount; ?><?= $value->amount_type==1?"BDT":"%"; ?></td>
                                 <td>
                                     <a href="coupon_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>
                                     <a onclick="return confirm('Are you sure to delete this data')" href="coupon_delete.php?id=<?= $value->id; ?>" class="btn btn-danger">Delete</a>

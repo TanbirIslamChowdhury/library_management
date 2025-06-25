@@ -27,36 +27,43 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="user_id">User</label>
-                                    <select class="form-control" id="user_id" name="user_id">  
+                                    <label for="delivery_man_id">Delivery Man</label>
+                                    <select class="form-control" id="delivery_man_id" name="delivery_man_id">
+                                        <option value="">Select Delivery Man</option>
                                         <?php
-                                        $data=$mysqli->common_select('user');
-                                        if(!$data['error']){
-                                            foreach($data['data'] as $d){
+                                        $del=$mysqli->common_select('delivery_man');
+                                        if(!$del['error']){
+                                            foreach($del['data'] as $d){
                                         ?>
-                                        <option value="<?= $d->id ?>"><?= $d->name ?></option>
+                                        <option value="<?= $d->id ?>" <?= $data->delivery_man_id==$d->id?"selected":"" ?>><?= $d->name ?> (<?= $d->contact_no ?>)</option>
                                         <?php } } ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="total_amount" class="form-label"> Total Amount</label>
-                                    <input type="text" class="form-control" id="total_amount" name="total_amount">
+                                    <label for="payment_status" class="form-label"> Payment Status</label>
+                                    <select class="form-control" id="payment_status" name="payment_status">
+                                        <option value="">Select Status</option>
+                                        <option value="1" <?= $data->payment_status==1?"selected":"" ?>>Paid</option>
+                                        <option value="0" <?= $data->payment_status==0?"selected":"" ?>>Unpaid</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="order_date" class="form-label">Order Date</label>
-                                    <input type="text" class="form-control" id="order_date" name="order_date">
+                                    <?php $delivery_status = array("Not Approved","Pending", "Processing","On The Way", "Delivered","Canceled"); ?>
+                                    <label for="delivery_status" class="form-label">Delivery Status</label>
+                                    <select class="form-control" id="delivery_status" name="delivery_status">
+                                        <option value="">Select Status</option>
+                                        <?php foreach ($delivery_status as $key => $value) { ?>
+                                            <option value="<?= $key ?>" <?= $data->delivery_status==$key?"selected":"" ?>><?= $value ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="payment_status" class="form-label">Payment Status</label>
-                                    <input type="text" class="form-control" id="payment_status" name="payment_status">
-                                </div>
-                            </div>
+                            
+                            
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>

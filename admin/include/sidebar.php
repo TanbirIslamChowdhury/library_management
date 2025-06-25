@@ -50,7 +50,6 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-shopping-bag me-2"></i>Order menue</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="orders.php" class="nav-item nav-link"></i>Orders</a>
-                            <a href="order_items.php" class="nav-item nav-link">Order Items</a>
                             <a href="order_track.php" class="nav-item nav-link">Order Track</a>
                             <a href="coupon.php" class="nav-item nav-link">Coupon</a>
                         </div>

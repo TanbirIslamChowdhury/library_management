@@ -38,7 +38,10 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="amount_type" class="form-label">Amount Type</label>
-                                    <input type="text" class="form-control" id="amount_type" name="amount_type">
+                                    <select class="form-control" id="amount_type" name="amount_type">
+                                        <option value="2">Percentage</option>
+                                        <option value="1">Fixed</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">

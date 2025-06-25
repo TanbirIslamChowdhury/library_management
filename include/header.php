@@ -48,21 +48,14 @@
 				</div>
 				<div class="col-md-6">
 					<div class="right-element">
-						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-						
-
-						<div class="action-menu">
-
-							<div class="search-bar">
-								<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
-									<i class="icon icon-search"></i>
-								</a>
-								<form role="search" method="get" class="search-box">
-									<input class="search-field text search-input" placeholder="Search" type="search">
-								</form>
-							</div>
-						</div>
-
+						<?php if (isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']) {
+							echo '<a href="logout_user.php" class="user-account for-buy">Logout</a>';
+							echo '<a href="profile.php" class="user-account for-buy"><i class="icon icon-user"></i>'.$_SESSION['user']->name.'</a>';
+						} else {
+							echo '<a href="login_user.php" class="user-account for-buy">Login</a>';
+							echo '<a href="register_user.php" class="user-account for-buy">Register</a>';
+						}
+						?>
 					</div><!--top-right-->
 				</div>
 

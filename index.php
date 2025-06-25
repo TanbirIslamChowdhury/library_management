@@ -8,8 +8,7 @@
 <?php include 'LibraryOffer.php';?>
 <?php include 'LibraryLatest.php';?>
 <?php include 'include/footer.php';?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script>
   function addToCartAJAX(book_id,name,price){
     $.get('cart_add.php',

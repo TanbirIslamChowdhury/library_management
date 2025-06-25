@@ -22,8 +22,8 @@
     $_SESSION['cart']['shipping_charge']=0;
     $_SESSION['cart']['discount_amount']=0;
     $_SESSION['cart']['discount_type']=1;
+    $_SESSION['cart']['discount_amount_final']=0;
     $_SESSION['cart']['cupon']="";
-    $_SESSION['cart']['other_charge']= count($_SESSION['cart']['item']) * 20;
     $_SESSION['cart']['total_item']=count($_SESSION['cart']['item']);
   }
 

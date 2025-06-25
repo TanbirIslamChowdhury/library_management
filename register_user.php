@@ -1,8 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-require_once('admin/class/crud.php');
-$mysqli = new crud();
+include 'include/connection_user.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['password'] !== $_POST['c_password']) {

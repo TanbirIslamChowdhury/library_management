@@ -1,7 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-include 'connection_user.php';
+
+include 'include/connection_user.php';
 
 if ($_POST) {
     $where = [
@@ -12,7 +11,12 @@ if ($_POST) {
     if ($res['error'] == 0 && count($res['data']) > 0) {
         $_SESSION['user'] = $res['data'][0];
         $_SESSION['log_user_status'] = true;
-        header('Location: LibraryIndex.php');
+        if($_GET['url']){
+            header('Location: '.$_GET['url']);
+        }else{
+            header('Location: index.php');
+        }
+        
         exit();
     } else {
         echo "<script>alert('Login Failed. Please check your email and password.');</script>";

@@ -115,7 +115,8 @@
             <h2>Your Cart</h2>
             <div id="cart-items">
                 <label for="">Coupon</label>
-                <input type="text" id="coupon-input" placeholder="Enter coupon code">
+                <input type="text" id="couponCode" placeholder="Enter coupon code">
+                <button onclick="applyCoupon()">Apply Coupon</button>
             </div>
             <div class="cart-total" id="cart-total">
                 Total: BDT <?= $_SESSION['cart']['total']; ?>
@@ -142,6 +143,18 @@
                 function(data){
                     if(data){
                         window.location.reload();
+                    }
+                }
+            )
+        }
+
+        function applyCoupon() {
+            var couponCode = $('#couponCode').val();
+            $.get('check_coupon.php',
+                { code : couponCode},
+                function(data){
+                    if(data){
+                        toastr.success(data);
                     }
                 }
             )

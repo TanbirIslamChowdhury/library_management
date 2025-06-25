@@ -29,9 +29,7 @@ echo json_encode($_SESSION['cart']);
     $_SESSION['cart']['discount_amount']=20;
     $_SESSION['cart']['discount_type']=2;
     $_SESSION['cart']['discount_amount_final']=20;
-  
     $_SESSION['cart']['cupon']="";
-    $_SESSION['cart']['other_charge']= count($_SESSION['cart']['item']) * 20;
     $_SESSION['cart']['total_item']=count($_SESSION['cart']['item']);
   }
 ?>
