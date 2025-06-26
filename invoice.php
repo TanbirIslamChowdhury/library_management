@@ -52,12 +52,24 @@
 
 <?php include 'include/header.php';?>
 
+<?php
+    $id = $_GET['id'];
+    $orders = $mysqli->common_select('orders','*',['id'=>$id]);
+    $orders = $orders['data'];
+    $order_items = $mysqli->common_select('order_items','*',['id'=>$id]);
+    $order_items = $order_items;['data'];
+    $order_track = $mysqli->common_select('order_track','*',['id'=>$id]);
+    $order_track = $order_track;['data'];
+    $users = $mysqli->common_select('users','*',['id'=>$id]);
+    $users = $users;['data'];
+  ?>
+
 
   <div class="container">
     <div class="invoice-header d-flex justify-content-between align-items-center">
       <div>
         <h1 class="invoice-title">Invoice</h1>
-        <p>Order #10234</p>
+        <p for="orders_id"><b>Order ID : </b> <?= $orders->id ?></p>
       </div>
       <div class="text-end">
         <p><strong>Date:</strong> 2025-06-21</p>

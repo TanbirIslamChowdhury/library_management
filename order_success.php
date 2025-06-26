@@ -1,4 +1,5 @@
 <?php include 'include/header.php';?>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 
 <div class="untree_co-section">
@@ -7,9 +8,9 @@
       <div class="col-md-12 text-center pt-5">
 
         <!-- Stylish Thank You text, no SVG -->
-        <h2 class="display-3 fw-bold-warning" style="color:text-shadow: 1px 1px 2px rgba(0,0,0,0.1); font-family: 'Georgia', serif;">
+        <h1 class="display-3 fw-bold-warning" style="font-family: 'Dancing Script', cursive; font-size: 5rem; color:#C5A992; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
           Thank you!
-        </h2>
+        </h1>
 
         <p class="lead mb-5 text-dark">Your order has been successfully placed.</p>
         
