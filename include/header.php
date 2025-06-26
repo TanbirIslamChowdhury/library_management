@@ -79,7 +79,11 @@
 					<nav id="navbar">
 						<div class="main-menu stellarnav desktop"><a href="#" class="menu-toggle full"><span class="bars"><span></span><span></span><span></span></span> Menu</a>
 							<ul class="menu-list">
-								<li class="menu-item active"><a href="LibraryIndex.php">Home</a></li>
+								<li class="menu-item active"><a href="index.php">Home</a></li>
+
+								<li class="menu-item active"><a href="LibraryShop.php">Shop Now</a></li>
+
+
 								<li class="menu-item has-sub">
 									<a href="#pages" class="nav-link">Pages</a>
 
