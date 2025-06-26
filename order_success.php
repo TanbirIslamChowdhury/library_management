@@ -15,7 +15,7 @@
         <p class="lead mb-5 text-dark">Your order has been successfully placed.</p>
         
         <p>
-          <a href="invoice.php?txnid=<?= $_GET['txnid'] ?? "" ?>" class="btn btn-lg btn-warning mb-3">
+          <a href="invoice.php?id=<?= $_GET['id'] ?? "" ?>" class="btn btn-lg btn-warning mb-3">
             Print Invoice
           </a>
         </p>

@@ -106,7 +106,7 @@
                             $order_details_id=$mysqli->common_insert('order_items',$order_details);
                         }
                         unset($_SESSION['cart']);
-                        echo "<script>location.href='".$baseurl."order_success.php'</script>";
+                        echo "<script>location.href='".$baseurl."order_success.php?id=".$order_id['data']."'</script>";
                         
                     }
                 }

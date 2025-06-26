@@ -55,13 +55,11 @@
 <?php
     $id = $_GET['id'];
     $orders = $mysqli->common_select('orders','*',['id'=>$id]);
-    $orders = $orders['data'];
+    $orders = $orders['data'][0];
     $order_items = $mysqli->common_select('order_items','*',['id'=>$id]);
     $order_items = $order_items;['data'];
-    $order_track = $mysqli->common_select('order_track','*',['id'=>$id]);
-    $order_track = $order_track;['data'];
     $users = $mysqli->common_select('users','*',['id'=>$id]);
-    $users = $users;['data'];
+    $users = $users;['data'][0];
   ?>
 
 
