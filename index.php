@@ -1,5 +1,6 @@
 
 <?php include 'include/header.php';?>
+<?php include 'LibraryShop.php';?>
 <?php include 'LibraryBillboard.php';?>
 <?php include 'LibraryFeaturedBooks.php';?>
 <?php include 'LibraryBestSelling.php';?>
