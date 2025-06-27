@@ -170,8 +170,8 @@
 
 						<div id="fictional" data-tab-content="">
 							<div class="row">
-								<div class="col-md-3">
-								<?php
+							<?php
+								
 								$books = $mysqli->common_query("SELECT books.*, categories.name as cat, author.name as auth, publisher.name as pub FROM `books` JOIN categories on categories.id=books.category_id JOIN author on author.id=books.author_id JOIN publisher on publisher.id=books.publisher_id WHERE books.status=1 and books.is_populer =1 and categories.id=5");
 								if (!$books['error']) {
 									foreach ($books['data'] as $d) {
@@ -181,8 +181,8 @@
 											<figure class="product-style">
 												<img src="<?= $baseurl ?>admin/<?= $d->image ?>" alt="Books" class="product-item">
 												<button type="button" onclick="addToCartAJAX(<?= $d->id ?>,'<?= $d->name ?>','<?= $d->price ?>')" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-											</figure>
-						                    <figcaption>
+                                            </figure>
+											<figcaption>
 												<h3><?= $d->name ?></h3>
 												<span><?= $d->auth ?></span><br>
 												<?php if($d->offer_price >0){ ?>
@@ -194,6 +194,7 @@
 										</div>
 									</div>
 								<?php } } ?>
+							
 							</div>
 						</div>
                     </div>
