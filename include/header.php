@@ -31,7 +31,7 @@
 
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0" class="no-print">
 <div id="header-wrap">
 	<div class="top-content">
 		<div class="container-fluid">
