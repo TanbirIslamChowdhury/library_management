@@ -31,7 +31,8 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="shipping_division">Shiping Division</label>
-                            <select class="form-control" onchange="get_district(this.value)" id="shipping_division" name="shipping_division">
+                            <!-- adding required attribute to select element of division -->
+                            <select class="form-control" onchange="get_district(this.value)" id="shipping_division" name="shipping_division" required>
                                 <option value="">Select Division</option>  
                                 <?php
                                 $data=$mysqli->common_select('division');
@@ -44,22 +45,28 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="shipping_district">Shiping District</label>
-                            <select class="form-control" onchange="shipping_charge(this.value)" id="shipping_district" name="shipping_district">  
+ <!-- adding required attribute to select shipping division -->     
+                            
+                            <select class="form-control" onchange="shipping_charge(this.value)" id="shipping_district" name="shipping_district" required>  
                                <option value="">Select District</option>  
                             </select>
                         </div>
-                        
+<!-- adding required attribute to select element of shipping address -->                       
                         <div class="col-sm-6">
                             <label for="shipping_address">Shiping Address</label>
-                            <input type="text" name="shipping_address" id="shipping_address">
+                            <input type="text" name="shipping_address" id="shipping_address" required>
                         </div>
                         <div class="col-sm-6">
                             <label for="billing_address">Billing Address</label>
-                            <input type="text" name="billing_address" id="billing_address">
+<!-- adding required attribute to select element of billing address -->
+
+                            <input type="text" name="billing_address" id="billing_address" required>
                         </div>
                         <div class="col-sm-6">
+<!-- adding required attribute to select element of billing contact -->                    
+                        
                             <label for="billing_contact">Billing Contact</label>
-                            <input type="text" name="billing_contact" id="billing_contact">
+                            <input type="text" name="billing_contact" id="billing_contact" required>
                         </div>
                     </div>
                     <div class="row">
