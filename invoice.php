@@ -58,8 +58,16 @@
     $orders = $orders['data'][0];
     $order_items = $mysqli->common_select('order_items','*',['id'=>$id]);
     $order_items = $order_items;['data'];
-    $users = $mysqli->common_select('users','*',['id'=>$id]);
-    $users = $users;['data'][0];
+    $users = $mysqli->common_select('users','*',['id'=>$orders->user_id]);
+    $users = $users['data'][0];
+    $division = $mysqli->common_select('division','*',['id'=>$orders->shipping_division]);
+    $division = $division['data'][0];
+    $district = $mysqli->common_select('district','*',['id'=>$orders->shipping_district]);
+    $district = $district['data'][0];
+    $order_items =$mysqli->common_select('order_items','*',['order_id'=>$id]);
+    $order_items = $order_items['data'];
+    $books =$mysqli->common_select('books','*',['id'=>$order_items->book_id]);
+    $books = $books['data'];
   ?>
 
 
@@ -67,11 +75,11 @@
     <div class="invoice-header d-flex justify-content-between align-items-center">
       <div>
         <h1 class="invoice-title">Invoice</h1>
-        <p for="orders_id"><b>Order ID : </b> <?= $orders->id ?></p>
+        <p for="orders_id"><b>Order ID : #</b> <?= str_pad($orders->id,4,'0',STR_PAD_LEFT) ?></p>
       </div>
       <div class="text-end">
-        <p><strong>Date:</strong> 2025-06-21</p>
-        <p><strong>Due Date:</strong> 2025-07-05</p>
+        <p><strong>Date:</strong> <?= date('d-m-Y', strtotime($orders->order_date)) ?></p>
+        <p><strong>Due Date:</strong><b>yet to be done</b></p>
       </div>
     </div>
 
@@ -79,10 +87,10 @@
       <div class="col-md-6">
         <h5>Bill To:</h5>
         <p>
-          Jane Doe<br />
-          123 Main Street<br />
-          Cityville, CA 90001<br />
-          jane.doe@example.com
+          <?= $users->name ?><br />
+          <?= $orders->billing_address ?><br />
+          <?= $district->name ?>, <?= $division->name ?><br />
+          <?= $orders->billing_contact ?>
         </p>
       </div>
       <div class="col-md-6 text-md-end">
@@ -108,8 +116,8 @@
         </thead>
         <tbody>
           <tr>
-            <td>The Art of Thinking Clearly</td>
-            <td>1</td>
+            <td><?= print_r($order_items) ?></td>
+            <td><?= print_r($books) ?></td>
             <td>$18.99</td>
             <td>$18.99</td>
           </tr>
