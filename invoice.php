@@ -122,18 +122,28 @@
           </tr>
           <?php endforeach; ?>
           <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td><?= $datas->total_amount ?></td>
+          </tr>
+          <tr>
+            <td>Discount Amount</td>
+            <td></td>
+            <td></td>
+            <td><?= $datas->discount_amount_final ?></td>
+          </tr>
+          <tr>
+            <td>Discounted Total</td>
+            <td></td>
+            <td></td>
+            <td><?= $datas->total_amount - $datas->discount_amount_final ?></td>
+          </tr>
+          <tr>
             <td>Shipping Charge</td>
             <td></td>
             <td></td>
             <td><?= $orders->shipping_charge ?></td>
-          </tr>
-          <tr class="total-row">
-            <td colspan="3" class="text-end">Total</td>
-            <td><?= $datas->total_amount ?></td>
-          </tr>
-          <tr class="total-row">
-            <td colspan="3" class="text-end">Discounted Amount</td>
-            <td><?= $datas->discount_amount_final ?></td>
           </tr>
           <tr class="total-row">
             <td colspan="3" class="text-end">Grand Total</td>
