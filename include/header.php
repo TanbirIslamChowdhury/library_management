@@ -80,8 +80,9 @@
 						<div class="main-menu stellarnav desktop"><a href="#" class="menu-toggle full"><span class="bars"><span></span><span></span><span></span></span> Menu</a>
 							<ul class="menu-list">
 								<li class="menu-item active"><a href="index.php">Home</a></li>
-								<li class="menu-item has-sub">
-									<a href="#pages" class="nav-link">Pages</a>
+								<li class="menu-item active"><a href="LibraryShop.php">Shop Now</a></li>
+								<!-- <li class="menu-item active">
+									<a href="LibraryShop.php" cl>Shop Now</a>
 
 									<ul style="display: none;">
 										<li class="active"><a href="index.php">Home</a></li>
@@ -95,7 +96,7 @@
 										<li><a href="index.html">Thank You</a></li>
 									</ul>
 
-								<a class="dd-toggle" href="#"><span class="icon-plus"></span></a></li>
+								<a class="dd-toggle" href="#"><span class="icon-plus"></span></a></li> -->
 								<li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
 								<li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
 								<li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>

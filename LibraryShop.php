@@ -1,14 +1,19 @@
 <?php include("include/header.php"); ?>
 
+
+
+<!-- eta ami korsi(Tanbir) -->
+
+
 <section id="featured-books" class="py-5 my-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-header align-center">
 					<div class="title">
-						<span>Some quality items</span>
-					</div>
-					<h2 class="section-title">Featured Books</h2>
+						<!-- <span>Some quality items</span>
+					</div> -->
+					<!-- <h2 class="section-title">Featured Books</h2> -->
 				</div>
 
 				<div class="product-list aos-init aos-animate" data-aos="fade-up">
@@ -57,3 +62,40 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+
+<!-- eta ami korsi(Tanbir) -->
+
+
+
+
+
+<script>
+  function addToCartAJAX(book_id,name,price){
+    $.get('cart_add.php',
+      { book_id : book_id,price:price,name:name},
+      function(data){
+        data=JSON.parse(data);
+        if(data){
+          $('.car-total').text(data.total);
+          toastr.success(name+' added to cart')
+        }
+      }
+    )
+  }
+</script>
+
+
+
+
+
+
+<!-- eta ami korsi(Tanbir) -->
+
+<?php include("include/footer.php"); ?>
+
+
+
