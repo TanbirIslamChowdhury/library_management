@@ -156,9 +156,15 @@
     <div class="text-center footer-text">
       <p>Thank you for your purchase! If you have any questions about this invoice, please contact support@bookpurchaseonline.com.</p>
     </div>
+    <button type="button" class="btn btn-primary float-right  no-print" onclick="print_btn()">Print Now</button>
   </div>
 
 <?php include 'include/footer.php';?>
+<script>
+    function print_btn(){
+        window.print();
+    }
+</script>
 
 </body>
 </html>
