@@ -64,10 +64,8 @@
     $division = $division['data'][0];
     $district = $mysqli->common_select('district','*',['id'=>$orders->shipping_district]);
     $district = $district['data'][0];
-    $order_items =$mysqli->common_select('order_items','*',['order_id'=>$id]);
-    $order_items = $order_items['data'];
-    $books =$mysqli->common_select('books','*',['id'=>$order_items->book_id]);
-    $books = $books['data'];
+    $items =$mysqli->common_query("SELECT order_items.*,books.name,orders.discount_amount,orders.discount_amount_final,orders.grand_total,orders.total_amount FROM `order_items` JOIN books on books.id=order_items.book_id JOIN orders on orders.id=order_items.order_id WHERE orders.id=$id");
+    $data = $items['data'];
   ?>
 
 
@@ -115,27 +113,31 @@
           </tr>
         </thead>
         <tbody>
+          <?php foreach ($data as $datas): ?>
           <tr>
-            <td><?= print_r($order_items) ?></td>
-            <td><?= print_r($books) ?></td>
-            <td>$18.99</td>
-            <td>$18.99</td>
+            <td><?= $datas->name ?></td>
+            <td><?= $datas->quantity ?></td>
+            <td><?= $datas->price_per_unit ?></td>
+            <td><?= $datas->price_per_unit * $datas->quantity ?></td>
           </tr>
+          <?php endforeach; ?>
           <tr>
-            <td>Atomic Habits</td>
-            <td>2</td>
-            <td>$18.99</td>
-            <td>$37.98</td>
-          </tr>
-          <tr>
-            <td>Deep Work</td>
-            <td>1</td>
-            <td>$15.49</td>
-            <td>$15.49</td>
+            <td>Shipping Charge</td>
+            <td></td>
+            <td></td>
+            <td><?= $orders->shipping_charge ?></td>
           </tr>
           <tr class="total-row">
             <td colspan="3" class="text-end">Total</td>
-            <td>$72.46</td>
+            <td><?= $datas->total_amount ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3" class="text-end">Discounted Amount</td>
+            <td><?= $datas->discount_amount_final ?></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3" class="text-end">Grand Total</td>
+            <td><?= $datas->grand_total ?></td>
           </tr>
         </tbody>
       </table>
