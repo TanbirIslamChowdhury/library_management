@@ -1,6 +1,13 @@
+<style>
+        @media print{    
+            .no-print, .no-print *
+            {
+                display: none !important;
+            }
+        }
+</style>
 
-
-<footer id="footer">
+<footer class=" no-print" id="footer">
 		<div class="container">
 			<div class="row">
 

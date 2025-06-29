@@ -20,6 +20,14 @@
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+        @media print{    
+            .no-print, .no-print *
+            {
+                display: none !important;
+            }
+        }
+     </style>
 
 </head>
 
