@@ -1,9 +1,6 @@
 <?php include("include/header.php"); ?>
 
-
-
 <!-- eta ami korsi(Tanbir) -->
-
 
 <section id="featured-books" class="py-5 my-5">
 	<div class="container">
@@ -28,7 +25,7 @@
 								<div class="product-item">
 									<figure class="product-style">
 										<img src="<?= $baseurl ?>admin/<?= $d->image ?>" alt="Books" class="product-item">
-										<button type="button" onclick="addToCartAJAX(<?= $d->id ?>,'<?= $d->name ?>','<?= $d->price ?>')" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
+										<button type="button" onclick="addToCartAJAX(<?= $d->id ?>,'<?= $d->name ?>','<?= $d->offer_price > 0 ? $d->offer_price : $d->price ?>')" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 									</figure>
 									<figcaption>
 										<h3><?= $d->name ?></h3>

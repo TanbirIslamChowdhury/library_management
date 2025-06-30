@@ -11,7 +11,7 @@ if ($_POST) {
     $res = $mysqli->common_select('admins', '*', $where);
     if ($res['error'] == 0 && count($res['data']) > 0) {
         $_SESSION['user'] = $res['data'][0];
-        $_SESSION['log_user_status'] = true;
+        $_SESSION['log_admin_status'] = true;
         header('Location: dashboard.php');
         exit();
     } else {
