@@ -82,7 +82,7 @@
     </div>
 
     <div class="row mb-4">
-      <div class="col-md-6">
+      <div class="col-6">
         <h5>Bill To:</h5>
         <p>
           <?= $users->name ?><br />
@@ -91,7 +91,7 @@
           <?= $orders->billing_contact ?>
         </p>
       </div>
-      <div class="col-md-6 text-md-end">
+      <div class="col-6 text-end">
         <h5>From:</h5>
         <p>
           BookPurchase Online<br />

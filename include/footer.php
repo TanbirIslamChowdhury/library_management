@@ -4,6 +4,11 @@
             {
                 display: none !important;
             }
+			.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 0.3rem;
+	padding:0;
+	margin:0
+}
         }
 </style>
 
@@ -126,7 +131,7 @@
 <!-- footer bottom -->
 
 
-<div id="footer-bottom">
+<div class=" no-print" id="footer-bottom">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

@@ -1,7 +1,7 @@
 <?php
 
 include 'connection.php';
-if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
+if(!isset($_SESSION['log_admin_status']) && $_SESSION['log_admin_status']!==true){
     header('location:login.php');
 }
 ?>
