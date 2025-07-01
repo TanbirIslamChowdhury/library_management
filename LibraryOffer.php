@@ -13,7 +13,7 @@
 					<div class="row">
 						<?php
 						
-						$books = $mysqli->common_query("SELECT books.*, categories.name as cat, author.name as auth, publisher.name as pub FROM `books` JOIN categories on categories.id=books.category_id JOIN author on author.id=books.author_id JOIN publisher on publisher.id=books.publisher_id WHERE books.status=1 and books.offer_price IS NOT NULL");
+						$books = $mysqli->common_query("SELECT books.*, categories.name as cat, author.name as auth, publisher.name as pub FROM `books` JOIN categories on categories.id=books.category_id JOIN author on author.id=books.author_id JOIN publisher on publisher.id=books.publisher_id WHERE books.status=1 and ( books.offer_price IS NOT NULL or books.offer_price!=0)");
 						if (!$books['error']) {
 							foreach ($books['data'] as $d) {
 						?>
