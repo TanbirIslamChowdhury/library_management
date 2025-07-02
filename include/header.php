@@ -29,9 +29,13 @@
             }
         }
      </style>
-	 <style>
-	
-	 </style>
+	 <!--<style>
+		#scon {
+			padding: 5px;
+			
+
+		}
+	 </style>-->
 	 
 </head>
 
@@ -60,8 +64,8 @@
 				</div>
 				<div class="col-md-6">
 					<div class="right-element">
-						<input type="text" name="search" id="search">
-						<button id="scon"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<!--<input type="text" name="search" id="search">
+						<button id="scon"><i class="fa fa-search" aria-hidden="true"></i></button>-->
 						<!--search bar-->
 
 						<?php if (isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']) {
