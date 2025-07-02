@@ -178,29 +178,45 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
-let data = [];
+		let books = [];
 
-$(document).ready(function() {
-  // Load data once from the server
-  $.getJSON('data.php', function(response) {
-    data = response;
-  });
+		$(document).ready(function() {
+		// Load books from PHP
+		$.getJSON('books.php', function(data) {
+			books = data;
+			displayBooks(books); // Display all books on initial load
+		});
 
-  $('#search').on('input', function() {
-    const query = $(this).val().toLowerCase();
-    const filtered = data.filter(item => item.title.toLowerCase().includes(query));
-    $('#results').empty();
+		$('#search').on('input', function() {
+			const query = $(this).val().toLowerCase();
 
-    if (filtered.length) {
-      filtered.forEach(item => {
-        $('#results').append('<li>' + item.title + '</li>');
-      });
-    } else {
-      $('#results').append('<li>No results found</li>');
-    }
-  });
-});
-</script>
+			const filtered = books.filter(book => {
+			return book.name && book.name.toLowerCase().includes(query);
+			
+			});
+
+			displayBooks(filtered);
+		});
+
+		function displayBooks(bookList) {
+			$('#results').empty();
+
+			if (bookList.length > 0) {
+			bookList.forEach(book => {
+				$('#results').append(`
+				<li>
+					<strong>${book.name}</strong><br>
+					Price: ${book.price}<br>
+				</li>
+				`);
+			});
+			} else {
+			$('#results').append('<li>No books found.</li>');
+			}
+		}
+		});
+
+	</script>
 
 
 </body>
