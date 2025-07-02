@@ -18,8 +18,6 @@
                 <div class="navbar-nav w-100">
                     <a href="dashboard.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="orders.php" class="nav-item nav-link active"><i class="fa fa-shopping-cart me-2"></i>Orders</a>
-                    <a href="order_track.php" class="nav-item nav-link active"><i class="fa fa-shopping-cart me-2"></i>Order Track</a>
-                   
                     
                 </div>
             </nav>

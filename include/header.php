@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 	<style>
         @media print{    
             .no-print, .no-print *
@@ -28,7 +29,10 @@
             }
         }
      </style>
-
+	 <style>
+		#
+	 </style>
+	 
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
@@ -56,6 +60,10 @@
 				</div>
 				<div class="col-md-6">
 					<div class="right-element">
+						<input type="text" name="search" id="search">
+						<button id="scon"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<!--search bar-->
+
 						<?php if (isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']) {
 							echo '<a href="logout_user.php" class="user-account for-buy">Logout</a>';
 							echo '<a href="profile.php" class="user-account for-buy"><i class="icon icon-user"></i>'.$_SESSION['user']->name.'</a>';

@@ -8,10 +8,10 @@
 <!-- Navbar End -->
 <?php
     $where['id'] = $_GET['id'];
-    $delivery_man = $mysqli->common_select("delivery_man",'*',$where);
+    $order_track = $mysqli->common_select("order_track",'*',$where);
     $data=[];
-    if (!$delivery_man['error']) {
-        $data=$delivery_man['data'][0];
+    if (!$order_track['error']) {
+        $data=$order_track['data'][0];
     }
     
 ?>
@@ -19,7 +19,7 @@
 <!-- Content Start -->
 <div class="col-sm-12">
     <div class="bg-light rounded h-100 p-4">
-        <h6 class="mb-4">Add New delivery_man</h6>
+        <h6 class="mb-4">Update Order Track</h6>
         <div class="row g-4">
             <div class="col-sm-12">
                 <div class="bg-light rounded h-100 p-4">
@@ -31,18 +31,7 @@
                                     <input type="text" value="<?= $data->note ?>" class="form-control" id="name" name="note">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="contact_no" class="form-label">order_id</label>
-                                    <input type="text" value="<?= $data->order_id ?>" class="form-control" id="contact_no" name="order_id">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">delivery_man</label>
-                                    <input type="text" value="<?= $data->delivery_man ?>" class="form-control" id="email" name="delivery_man">
-                                </div>
-                            </div>
+                           
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="address" class="form-label">track_date_time</label>
@@ -55,10 +44,10 @@
                     <?php
                     if ($_POST) {
                         $_POST['updated_at'] = date('Y-m-d H:i:s');
-                        $_POST['updated_by'] = $_SESSION['user']->id;
-                        $res=$mysqli->common_update('delivery_man',$_POST,$where);
+                        $_POST['updated_by'] = $_SESSION['delivery_man']->id;
+                        $res=$mysqli->common_update('order_track',$_POST,$where);
                         if(!$res['error']){
-                          echo "<script>location.href='".$baseurl."admin/delivery_man.php'</script>";
+                          echo "<script>location.href='".$baseurl."/delivery_man/order_track.php?order_id=". $_GET['order_id']."'</script>";
                         }else{
                           echo $res['error_msg'];
                         }

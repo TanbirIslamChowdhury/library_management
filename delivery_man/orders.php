@@ -40,6 +40,7 @@
                                 <td><?= $value->payment_status?"Paid":"Unpaid"; ?></td>
                                 <td><?= $delivery_status[$value->delivery_status]; ?></td>
                                 <td>
+                                    <a href="order_track.php?order_id=<?= $value->id ?>" class="btn btn-primary float-end">Track</a>
                                     <?php if($value->delivery_status ==4 || $value->delivery_status==5){ ?>
                                     <?php }else{ ?>
                                     <a href="orders_edit.php?id=<?= $value->id ?>" class="btn btn-primary">Edit</a>

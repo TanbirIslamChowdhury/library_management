@@ -4,10 +4,10 @@
   $where['id']=$_GET['id'];
 
   $data['updated_at']=date('Y-m-d H:i:s');
-  $data['updated_by']=$_SESSION['user']->id;
-  $res=$mysqli->soft_delete('delivery_man',$data,$where);
+  $data['updated_by']=$_SESSION['delivery_man']->id;
+  $res=$mysqli->soft_delete('order_track',$data,$where);
   if(!$res['error']){
-    echo "<script>location.href='".$baseurl."/admin/delivery_man.php'</script>";
+    echo "<script>location.href='".$baseurl."/delivery_man/order_track.php?order_id=". $_GET['order_id']."'</script>";
   }else{
     echo $res['error_msg'];
   }

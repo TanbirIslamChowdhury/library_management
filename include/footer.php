@@ -177,6 +177,31 @@
 	<script src="js/script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+let data = [];
+
+$(document).ready(function() {
+  // Load data once from the server
+  $.getJSON('data.php', function(response) {
+    data = response;
+  });
+
+  $('#search').on('input', function() {
+    const query = $(this).val().toLowerCase();
+    const filtered = data.filter(item => item.title.toLowerCase().includes(query));
+    $('#results').empty();
+
+    if (filtered.length) {
+      filtered.forEach(item => {
+        $('#results').append('<li>' + item.title + '</li>');
+      });
+    } else {
+      $('#results').append('<li>No results found</li>');
+    }
+  });
+});
+</script>
+
 
 </body>
 

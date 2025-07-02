@@ -56,10 +56,10 @@
                     <?php
                     if ($_POST) {
                         $_POST['updated_at'] = date('Y-m-d H:i:s');
-                        $_POST['updated_by'] = $_SESSION['user']->id;
+                        $_POST['updated_by'] = $_SESSION['delivery_man']->id;
                         $res=$mysqli->common_update('orders',$_POST,$where);
                         if(!$res['error']){
-                          echo "<script>location.href='".$baseurl."admin/orders.php'</script>";
+                          echo "<script>location.href='".$baseurl."delivery_man/orders.php'</script>";
                         }else{
                           echo $res['error_msg'];
                         }
