@@ -28,15 +28,35 @@
                 display: none !important;
             }
         }
-     </style>
-	 
-	 <!--<style>
-		#scon {
-			padding: 5px;
-			
+		#results{
+			position: absolute;
+			width: 100%;
+			right: 0;
+			z-index: 999;
+			top: 38px;
+			border-radius: 10px;
+		}
+		#results li{
+			background-color:#daa556;
+			width: 100%;
+			list-style:none;
+			text-align:left;
+			padding: 5px 15px;
 
 		}
-	 </style>-->
+		.search-bar{
+			position: relative;
+			width: 30%;
+			margin: 0;
+			padding:0;
+		}
+		#login,#regi{
+			margin-left: 17px;
+		}
+		.top-content .right-element .for-buy {
+			margin-right: 4px;
+		}
+     </style>
 	 
 </head>
 
@@ -64,19 +84,19 @@
 					</div><!--social-links-->
 				</div>
 				<div class="col-md-6">
-					<div class="right-element">
-						<!--<input type="text" name="search" id="search">
-						<ul id="results"></ul>
-						<button id="scon"><i class="fa fa-search" aria-hidden="true"></i></button>
-						-->
+					<div class="right-element d-flex  flex-row">
+						<div class="search-bar w-75">
+							<input type="text" class="form-control" name="search" id="search">
+							<ul id="results"></ul>
+						</div>
 						<!--search bar-->
 
 						<?php if (isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']) {
 							echo '<a href="logout_user.php" class="user-account for-buy">Logout</a>';
 							echo '<a href="profile.php" class="user-account for-buy"><i class="icon icon-user"></i>'.$_SESSION['user']->name.'</a>';
 						} else {
-							echo '<a href="login_user.php" class="user-account for-buy">Login</a>';
-							echo '<a href="register_user.php" class="user-account for-buy">Register</a>';
+							echo '<a href="login_user.php" id="login" class="user-account for-buy">Login</a>';
+							echo '<a href="register_user.php" id="regi" class="user-account for-buy">Register</a>';
 						}
 						?>
 					</div><!--top-right-->
