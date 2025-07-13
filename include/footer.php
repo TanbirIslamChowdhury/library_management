@@ -208,6 +208,7 @@
 					$('#results').append(`
 					<li>
 						<a href="bookdetails.php?id=${book.id}">
+						<img src="<?= $baseurl ?>admin/<?= $d->image ?>" alt="Books" class="product-item">
 						<strong>${book.name} </strong>
 						</a>
 					</li>
